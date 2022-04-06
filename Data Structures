@@ -1,0 +1,5 @@
+struct Tile {
+    int x;
+    int y;
+    char status = '~'; // default tile state is ocean represented by '~'
+};

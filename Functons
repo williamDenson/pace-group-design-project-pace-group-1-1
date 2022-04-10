@@ -1,1 +1,18 @@
+// Initializes the starting state of the game board
+// PRE:
+// POST:
+void InitBoard(GameState state)
+{
+    board = state.board;
 
+    for (int x = 0; x < state.boardSize; x++)
+    {
+        for (int y = 0; y < state.boardSize; y++)
+        {
+            Tile tile = board[x][y];
+            // for now just make everything water I guess
+            tile.status = '~';
+            tile.type = water;
+        }
+    }
+}

@@ -1,5 +1,32 @@
-struct Tile {
+enum GameStatus
+{
+    INIT,
+    PLAY, // maybe seperate status into player turn and AI turn?
+    PAUSE,
+    WIN,
+    LOSE,
+};
+enum TileType
+{
+    Water,
+    Ship,
+};
+
+struct Tile
+{
     int x;
     int y;
+    TileType type;
     char status = '~'; // default tile state is ocean represented by '~'
+};
+
+struct GameState
+{
+    GameStatus status;
+
+    int boardSize = 10;
+    Tile board[boardSize][boardSize];
+
+    int player2Score;
+    int player2Score;
 };

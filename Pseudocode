@@ -1,1 +1,35 @@
+A program that initiates a board game called "Battleship" in which two players attempt
+to guess the whereabouts of each other's battleship location. Players will test their
+skill by guessing x and y locations to try to sink their opponent's ship. Water will 
+be represent by the symbol '~', '#' a component of a ship, 'H' to represent where a 
+ship has been hit and '.' to represent a miss. 
+============================================================
+Pseudocode/Program Logic
 
+enum GameStatus {Options to maniuplate game};
+
+enum TileType {Char representations for the game legend};
+
+struct Tile
+{
+  Standard matrix for ocean generation
+};
+
+struct GameState
+{
+  Board constructed using 2d array
+};
+
+int main()
+{
+
+  Start game, use enum Gamesatus to begin or modify game status;
+  
+  InitBoard(PLAY);
+  
+  UpdateBoard(GameState state);   // tile = standard ocean board. Hit/miss generates switch, new board generated
+  
+  DisplayBoard(GameState state);  // reflected and updated board of boolean functions
+  
+
+}

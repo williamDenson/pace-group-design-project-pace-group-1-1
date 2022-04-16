@@ -30,6 +30,7 @@ int main()
 
   Start game, use enum Gamesatus to begin or modify game status;
 
+  // run InitBoard twice, once for each player ie state.board[0] = InitBoard(state), and state.board[1] = InitBoard(state)
   InitBoard(PLAY);
 
   UpdateBoard(GameState state); // tile = standard ocean board. Hit/miss generates switch, new board generated

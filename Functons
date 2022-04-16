@@ -1,7 +1,7 @@
 // Initializes the starting state of the game board
-// PRE:
-// POST:
-void InitBoard(GameState state)
+// PRE: The state parameter must be of type GameState
+// POST: The board member of state will be initialized to
+Tile[] InitBoard(GameState state)
 {
     board = state.board;
 
@@ -15,4 +15,8 @@ void InitBoard(GameState state)
             tile.type = water;
         }
     }
+
+    // next alternate between letting the players choose their ship positions.
+
+    return state.board[];
 }

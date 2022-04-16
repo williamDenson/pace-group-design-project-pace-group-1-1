@@ -1,1 +1,21 @@
+// include Gamestate struct
 
+int main()
+{
+    GameState state;
+    state.board = InitBoard(state); // initialize the state of the game board.
+    bool Status = true;
+    int turnCounter = 0;
+
+    while (status)
+    {
+        // should turns be simultaneous?
+        // display board
+        // ask for user input
+        // calculate changes to game state
+        // display changes
+        // go to the next turn
+    }
+
+    return 0;
+}

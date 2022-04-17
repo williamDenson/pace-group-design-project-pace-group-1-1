@@ -19,7 +19,10 @@ Tile[][] InitBoard(GameState state, )
     return state.board[];
 }
 
-tile[][] SetShips()
+// Lets a player position their ships on their board
+// Pre: state must contain a valid board member
+// Post: Will update the correct tiles in the calling players board with the correct ship positions
+tile[][] SetShips(GameState state)
 {
     // prompt user to choose where to set first ship (carrier?)
 
@@ -31,4 +34,50 @@ tile[][] SetShips()
     // prompt user to choose where to set second ship (destroyer?)
 
     // can either run this function twice for each players board, or can fill both boards at once.
+}
+
+// Simulates the actions necessary to run a turn for a player
+// Pre: The players must have already placed their ships
+// Post: will return the updated version of the gamestate after the turn has been run
+GameState RunTurnPlayer(GameState state)
+{
+    // ask for input on what tile to fire on
+
+    // check if tile contains an enemy ship
+
+    // if tile contains enemy ship update game state and change tile graphic to indicate a hit
+    // do this through update gameState
+}
+
+// Simulates the actions necessary to run a turn for a player
+// Pre: The players must have already placed their ships
+// Post: will return the updated version of the gamestate after the turn has been run
+GameState RunTurnPlayer(GameState state)
+{
+    // ask for input on what tile to fire on
+
+    // check if tile contains an enemy ship
+
+    // if tile contains enemy ship update game state and change tile graphic to indicate a hit
+    // do this through UpdateTileState
+}
+// Simulates the actions necessary to run a turn for an "ai"
+// Pre: The ai must have already placed their ships
+// Post: will return the updated version of the gamestate after the turn has been run
+GameState RunTurnAi(GameState state)
+{
+    // pick a random tile to hit
+
+    // check if tile contains an enemy ship
+
+    // if tile contains enemy ship update game state and change tile graphic to indicate a hit
+    // do this through update gameState
+}
+
+// Updates the state of a tile
+// Pre: x and y must be within the bounds of the GameState.board array and tile must be a valid Tile type struct
+// Post: Will update the state of the specified tile with the new state from the tile parameter
+GameState UpdateTileState(Tile tile, int x, int y)
+{
+    //
 }

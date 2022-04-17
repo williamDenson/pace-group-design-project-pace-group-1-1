@@ -22,7 +22,8 @@ enum ShipType
 struct Ship
 {
     ShipType type;
-    int[4][2] position // largest ships can be on up to 4 tiles while smallest ship only covers 2 tiles, second array is x/y
+    int[4][2] position; // largest ships can be on up to 4 tiles while smallest ship only covers 2 tiles, second array is x/y
+    bool[4] damage;     // true if that section of the ship has been hit.
 };
 struct Tile
 {
@@ -38,6 +39,8 @@ struct GameState
 
     int boardSize = 10;
     Tile board[2][boardSize][boardSize]; // 2 boards, 1 for each player
+
+    Ship[2][5] playerShipStatus; // handles data on current status of player ships
 
     int player2Score;
     int player2Score;

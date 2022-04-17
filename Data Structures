@@ -1,5 +1,44 @@
-struct Tile {
+enum GameStatus
+{
+    INIT,
+    PLAY, // maybe seperate status into player turn and AI turn?
+    PAUSE,
+    WIN,
+    LOSE,
+};
+enum TileType
+{
+    Water,
+    Ship,
+};
+enum ShipType
+{
+    Carrier,    // 4 tiles
+    BattleShip, // 4 tiles
+    Cruiser,    // 3 tiles
+    Submarine,  // 3 tiles
+    Destroyer   // 2 tiles
+};
+struct Ship
+{
+    ShipType type;
+    int[4][2] position // largest ships can be on up to 4 tiles while smallest ship only covers 2 tiles, second array is x/y
+};
+struct Tile
+{
     int x;
     int y;
+    TileType type;
     char status = '~'; // default tile state is ocean represented by '~'
+};
+
+struct GameState
+{
+    GameStatus status;
+
+    int boardSize = 10;
+    Tile board[2][boardSize][boardSize]; // 2 boards, 1 for each player
+
+    int player2Score;
+    int player2Score;
 };

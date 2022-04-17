@@ -1,1 +1,34 @@
+// Initializes the starting state of the game board
+// PRE: The state parameter must be of type GameState
+// POST: The board member of state will be initialized to
+Tile[][] InitBoard(GameState state, )
+{
+    board = state.board;
 
+    for (int x = 0; x < state.boardSize; x++)
+    {
+        for (int y = 0; y < state.boardSize; y++)
+        {
+            Tile tile = board[x][y];
+            // for now just make everything water I guess
+            tile.status = '~';
+            tile.type = water;
+        }
+    }
+
+    return state.board[];
+}
+
+tile[][] SetShips()
+{
+    // prompt user to choose where to set first ship (carrier?)
+
+    // prompt user to choose where to set second ship (battleship?)
+
+    // prompt user to choose where to set third ship (crusier?)
+
+    // prompt user to choose where to set fourth ship (submarine?)
+    // prompt user to choose where to set second ship (destroyer?)
+
+    // can either run this function twice for each players board, or can fill both boards at once.
+}

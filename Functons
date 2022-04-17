@@ -19,7 +19,10 @@ Tile[][] InitBoard(GameState state, )
     return state.board[];
 }
 
-tile[][] SetShips()
+// Lets a player position their ships on their board
+// Pre: state must contain a valid board member
+// Post: Will update the correct tiles in the calling players board with the correct ship positions
+tile[][] SetShips(GameState state)
 {
     // prompt user to choose where to set first ship (carrier?)
 
@@ -31,4 +34,18 @@ tile[][] SetShips()
     // prompt user to choose where to set second ship (destroyer?)
 
     // can either run this function twice for each players board, or can fill both boards at once.
+}
+
+// Simulates the actions necessary to run a turn for a player
+// Pre: The players must have already placed their ships
+// Post: will return the updated version of the gamestate after the turn has been run
+GameState RunTurn(GameState state)
+{
+}
+
+// Updates the game state at the end of every turn
+// Pre: Must be called in the RunTurn function
+// Post: will calculate the state of the board at the end of the turn and return it to the RunTurn function
+GameState CalculateState(GameState state)
+{
 }

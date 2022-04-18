@@ -81,3 +81,31 @@ GameState UpdateTileState(Tile tile, int x, int y)
 {
     //
 }
+
+// Initiates computer to create random ship placement
+// Pre: Random number generator library call using computer timer
+// Post: Random ship placement onto tile board
+
+GameState RunGenerateAi(GameState state)
+{
+    int xCord, yCord;
+    
+    do {
+    
+        guessPosition = rand() & 100 + 1;
+    
+        guessPosition = state.board[];
+    } while (!FindShip(board, state.boardsize, guessPosition, x, y));
+    
+    cout << "Find the ship placed by the computer " << guessPosition << "\n";
+    
+    do {
+        UpdateTileState(board, int x, int y);
+        
+        cout << "Guess ship location ";
+        cin << xCord << yCord;
+        found = UpdateTileState(board, state.boardsize, guessPosition, xCord, yCord);
+        
+    }while (!found);
+}
+    

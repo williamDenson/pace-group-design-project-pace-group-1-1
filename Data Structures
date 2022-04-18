@@ -10,6 +10,8 @@ enum TileType
 {
     Water,
     Ship,
+    Damage,
+    Miss,
 };
 enum ShipType
 {

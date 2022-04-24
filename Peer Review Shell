@@ -108,7 +108,8 @@ int srink(Ship*** g,int size ){
     }
 
 }
-void printGrid(Ship*** g,int size ){
+void printGrid(Ship*** g,int size ){            // Only changes I would make is to perhaps initiate a while loop to handle printed grid for each
+                                                // boolean result of whether a ship is hit or not
      for(int i = 0; i < size; ++i){
         for(int j = 0; j < size; ++j){
             Ship *p = g[i][j];

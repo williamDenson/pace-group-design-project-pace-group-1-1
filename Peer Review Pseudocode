@@ -1,1 +1,78 @@
+// ************************************************************************************
+// Pseudocode for srink
+
+int srink(Ship*** g,int size ){                                     // Passes in address of g which is of type 'Ship'. Passes in size as integer
+    // Take in x coordinate 
+    // Take in y coordinate
+    while(true){                                                    // While loop to verify appropriate values
+        // Prompt for x and y guess
+        // Decrement both x and y to accomidate n+1 board size
+        if(x>=0&&x<size && y>=0&&y<size){
+            break;                                                  // Jump  out if valid
+        }
+        else{
+            // Echo failure of range
+            continue;                                               // Continue down the code
+        }
+    }
+    // Assign p to 2-d array of g
+    if(P contains no value){                                        // Checks guesses and observes if values meet criteria of a 'hit'
+        // Echo a miss
+        // Return 0 as response code
+    }
+    else{
+        Point to power and decrement                                                
+        Assign g array to NULL
+        if(Power component of node is 0){
+            // Echo a kill
+            // Message code 3 (return 3)
+        }
+        else{
+            // Echo a miss
+            // Message code 2 (return 2)
+        }
+    }
+
+}
+
+
+// ************************************************************************************
+// Pseudocode for createRandShip
+
+bool createRandShip(Ship*** g,int size ,int num){                       // Returns a logical value by taking in g address parameter, size integer and a number integer
+    // count set to zero
+    while(num greater than 0){
+        X position assigned a random number within the limitations of 'size'
+        Y position assigned a random number within the limitations of 'size'
+        if((x position is less than size greater than 0 and array is NULL and within range){
+            // Assign a new ship to address of p
+            // Assignment to 3 to power
+            g[xPos][yPos] = p;
+            g[xPos+1][yPos] = p;
+            g[xPos-1][yPos] = p;
+            num--;
+            // Reveal position
+        }
+        else if((x fails condition but y coordinate does){
+            Ship *p = new Ship;
+            p->power = 3;
+            g[xPos][yPos] = p;
+            g[xPos][yPos+1] = p;
+            g[xPos][yPos-1] = p;
+            num--;
+            // Reveal position
+        }
+        count++;
+        if(count>200)
+            break;
+    }
+    if(count>200)
+        return false;
+    return true;
+}
+
+
+
+
+
 

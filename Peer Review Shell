@@ -1,1 +1,155 @@
-/
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+struct Ship{
+    int power;
+    int p0[3][2];
+};
+
+int srink(Ship*** g,int size );
+bool createGrid(Ship*** g,int size);
+bool createRandShip(Ship*** g,int size ,int num);
+void printGrid(Ship*** g,int size );
+
+int main()
+{
+    int grid_size;
+    int numOfShips;
+    cout << "Please Enter Size of Grid " ;
+    cin >> grid_size;
+    cout << "Please enter number of ships : " ;
+    cin >> numOfShips;
+    cout << "Try to sink them all in the fewest number of guesses"<<endl;
+
+    Ship ***grid;
+    grid = new Ship**[grid_size];
+    for(int i = 0; i < grid_size; ++i)
+        grid[i] = new Ship*[grid_size];
+    for(int i = 0; i < grid_size; ++i)
+        for(int j = 0; j < grid_size; ++j)
+            grid[i][j] = NULL;
+
+    createRandShip(grid,grid_size ,numOfShips);
+    printGrid(grid,grid_size);
+    int numOfGuess = 0;
+    while(numOfShips>0){
+        //printGrid(grid,grid_size);
+        if(srink(grid,grid_size)==3){
+            numOfShips--;
+        }
+       numOfGuess++;
+       if(numOfGuess==20){
+            cout << "All ships are not sank!"<<endl;
+            cout << "Took you long enough "<<numOfGuess<<" guesses.!"<<endl;
+            cout << "Fish are dancing with your options."<<endl;
+       }
+       if(numOfGuess==25){
+          break;
+       }
+    }
+    if(numOfGuess<=20){
+       cout << "All ships are sank!"<<endl;
+       cout << "It only took you "<<numOfGuess<<" guesses.!"<<endl;
+       cout << "You got out before your options sank."<<endl;
+    }
+    if(numOfGuess>20 && numOfShips>0){
+        cout << "You are not able to sank all ships!"<<endl;
+        cout << "Here is grid:"<<endl;
+        printGrid(grid,grid_size);
+    }
+    if(numOfGuess>20 && numOfShips==0){
+        cout << "All ships are sank!"<<endl;
+    }
+
+    return 0;
+}
+bool createGrid(Ship*** g,int size ){
+    g = new Ship**[size];
+    for(int i = 0; i < size; ++i)
+        g[i] = new Ship*[size];
+
+    for(int i = 0; i < size; ++i)
+        for(int j = 0; j < size; ++j)
+            g[i][j] = NULL;
+}
+int srink(Ship*** g,int size ){
+    int x;
+    int y;
+    while(true){
+        cout <<"Enter a guess [row (1 to "<<size<<")] [col (1 to "<<size<<")]:";
+        cin >>x >>y;
+        x--;
+        y--;
+        if(x>=0&&x<size && y>=0&&y<size){
+            break;
+        }
+        else{
+            cout<<"Invalid Value"<<endl;
+            continue;
+        }
+    }
+    Ship * p = g[x][y];
+    if(p == NULL){
+        cout<<" Miss"<<endl;
+        return 0;
+    }
+    else{
+        p->power--;
+        g[x][y] = NULL;
+        if(p->power==0){
+            cout<<" Kill"<<endl;
+            return 3;
+        }
+        else{
+            cout<<" Hit"<<endl;
+            return 2;
+        }
+    }
+
+}
+void printGrid(Ship*** g,int size ){
+     for(int i = 0; i < size; ++i){
+        for(int j = 0; j < size; ++j){
+            Ship *p = g[i][j];
+            if(p != NULL){
+                cout <<" "<<p->power;
+            }
+            else
+                cout <<" ~";
+        }
+        cout << endl;
+     }
+}
+bool createRandShip(Ship*** g,int size ,int num){
+    int count = 0;
+    while(num>0){
+        int xPos = rand()%size;
+        int yPos = rand()%size;
+        if((xPos+1)<size && (xPos-1)>=0 && g[xPos][yPos]==NULL && g[xPos+1][yPos]==NULL && g[xPos-1][yPos]==NULL){
+            Ship *p = new Ship;
+            p->power = 3;
+            g[xPos][yPos] = p;
+            g[xPos+1][yPos] = p;
+            g[xPos-1][yPos] = p;
+            num--;
+            //cout <<"Vert xPos="<<xPos<<" yPos "<<yPos<<endl;
+        }
+        else if((yPos+1)<size && (yPos-1)>=0 && g[xPos][yPos]==NULL && g[xPos][yPos+1]==NULL && g[xPos][yPos-1] == NULL){
+            Ship *p = new Ship;
+            p->power = 3;
+            g[xPos][yPos] = p;
+            g[xPos][yPos+1] = p;
+            g[xPos][yPos-1] = p;
+            num--;
+            //cout <<"Horz xPos="<<xPos<<" yPos "<<yPos<<endl;
+        }
+        count++;
+        if(count>200)
+            break;
+    }
+    if(count>200)
+        return false;
+    return true;
+}
+
